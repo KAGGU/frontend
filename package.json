@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "flowbite": "^2.5.1",
     "jotai": "^2.9.3",
     "next": "14.2.5",
     "react": "^18",
