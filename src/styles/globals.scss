@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import 'swap';
+
+body {
+  @apply bg-white dark:bg-neutral-800 text-black dark:text-white;
+}
