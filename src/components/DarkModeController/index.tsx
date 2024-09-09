@@ -1,8 +1,30 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 const DarkModeController = () => {
+  const [checked, setChecked] = useState(localStorage.theme === 'dark');
+  useEffect(() => {
+    const { classList } = document.documentElement;
+    if (checked) {
+      classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      classList.remove('dark');
+      localStorage.removeItem('theme');
+    }
+  }, [checked]);
+
   return (
     <label className='swap swap-rotate'>
       {/* this hidden checkbox controls the state */}
-      <input type='checkbox' className='theme-controller' value='synthwave' />
+      <input
+        type='checkbox'
+        className='theme-controller'
+        value='synthwave'
+        checked={checked}
+        onChange={(e) => setChecked(e.target.checked)}
+      />
 
       {/* sun icon */}
       <svg
