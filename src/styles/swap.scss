@@ -1,0 +1,53 @@
+@layer components {
+  .swap {
+    @apply relative inline-grid select-none place-content-center;
+    @apply cursor-pointer;
+  }
+
+  .swap > * {
+    @apply col-start-1 row-start-1;
+    @apply duration-300 ease-out;
+    transition-property: transform, opacity;
+  }
+
+  .swap input {
+    @apply appearance-none;
+    @apply opacity-0;
+  }
+
+  .swap .swap-on,
+  .swap .swap-indeterminate,
+  .swap input:indeterminate ~ .swap-on {
+    @apply opacity-0;
+  }
+
+  .swap input:checked ~ .swap-off,
+  .swap-active .swap-off,
+  .swap input:indeterminate ~ .swap-off {
+    @apply opacity-0;
+  }
+
+  .swap input:checked ~ .swap-on,
+  .swap-active .swap-on,
+  .swap input:indeterminate ~ .swap-indeterminate {
+    @apply opacity-100;
+  }
+
+  .swap-rotate .swap-on,
+  .swap-rotate .swap-indeterminate,
+  .swap-rotate input:indeterminate ~ .swap-on {
+    @apply rotate-45;
+  }
+
+  .swap-rotate input:checked ~ .swap-off,
+  .swap-active:where(.swap-rotate) .swap-off,
+  .swap-rotate input:indeterminate ~ .swap-off {
+    @apply -rotate-45;
+  }
+
+  .swap-rotate input:checked ~ .swap-on,
+  .swap-active:where(.swap-rotate) .swap-on,
+  .swap-rotate input:indeterminate ~ .swap-indeterminate {
+    @apply rotate-0;
+  }
+}
